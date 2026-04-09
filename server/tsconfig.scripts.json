@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "types": ["node"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "include": ["src/scripts/**/*", "src/config/**/*", "src/models/**/*", "src/types/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

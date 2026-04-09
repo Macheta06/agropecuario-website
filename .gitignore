@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+/dist
+/build
+/out
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# AI Agents & Skills
+.agents/
+.gemini/
+.antigravity/
+
+# Project Specific (Sensitive/Large)
+PROJECT_SPEC.md
+"Inventario Agropecuario marzo 2026*"
+*.xlsx
+*.csv
+
+# TypeScript & Cache
+*.tsbuildinfo
+.eslintcache
