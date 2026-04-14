@@ -7,7 +7,8 @@
     "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "seed": "ts-node --project tsconfig.scripts.json src/scripts/seeder.ts"
+    "seed": "ts-node --project tsconfig.scripts.json src/scripts/seeder.ts",
+    "scrape": "ts-node --project tsconfig.scripts.json src/scripts/imageScraper.ts"
   },
   "keywords": [
     "express",
@@ -27,9 +28,11 @@
     "xlsx": "^0.18.5"
   },
   "dependencies": {
+    "cloudinary": "^2.9.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
-    "mongoose": "^9.4.1"
+    "mongoose": "^9.4.1",
+    "puppeteer": "^24.40.0"
   }
 }

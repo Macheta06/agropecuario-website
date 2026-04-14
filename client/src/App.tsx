@@ -1,92 +1,37 @@
-import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
-import { SearchBar } from './components/ui/SearchBar';
-import { CategoryMenu } from './components/ui/CategoryMenu';
-import { ProductList } from './components/ui/ProductList';
 import { WhatsAppButton } from './components/ui/WhatsAppButton';
-import { useCategories } from './hooks/useCategories';
-import { useProducts } from './hooks/useProducts';
+import { Home } from './pages/Home';
+import { Shop } from './pages/Shop';
+import { Brands } from './pages/Brands';
 
 function App() {
-  const [search, setSearch] = useState<string>('');
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | undefined>(undefined);
-
-  const { categories, isLoading: categoriesLoading } = useCategories();
-  const {
-    products,
-    total,
-    page,
-    totalPages,
-    isLoading: productsLoading,
-    error,
-    setPage,
-  } = useProducts({ search, categoryId: selectedCategoryId });
-
-  // ── Título Dinámico ────────────────────────────────────────────────────────
-  useEffect(() => {
-    const activeCategory = categories.find(c => c._id === selectedCategoryId);
-    const suffix = 'Almacén Agropecuario';
-    
-    if (search) {
-      document.title = `Buscando "${search}" | ${suffix}`;
-    } else if (activeCategory) {
-      document.title = `${activeCategory.name} | ${suffix}`;
-    } else {
-      document.title = `Catálogo | ${suffix}`;
-    }
-  }, [search, selectedCategoryId, categories]);
-
-  // ── Auto-scroll al inicio ──────────────────────────────────────────────────
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [page, selectedCategoryId, search]);
-
-  const handleCategorySelect = (categoryId: string | undefined) => {
-    setSelectedCategoryId(categoryId);
-    setPage(1);
-  };
-
-  const handleReset = () => {
-    setSearch('');
-    setSelectedCategoryId(undefined);
-    setPage(1);
-  };
-
   return (
-    <div className="min-h-dvh flex flex-col" style={{ backgroundColor: 'var(--color-surface-950)' }}>
-      <Navbar storeName="Almacén Agropecuario" onLogoClick={handleReset} />
+    <div className="min-h-dvh flex flex-col bg-surface-50">
+      {/* El Navbar se mantiene en todas las vistas */}
+      <Navbar />
 
-      <div
-        className="sticky z-30 w-full px-4 pt-3 pb-3 flex flex-col gap-2.5"
-        style={{
-          top: '3.5rem',
-          backgroundColor: 'rgba(10, 10, 10, 0.9)',
-          backdropFilter: 'blur(8px)',
-          borderBottom: '1px solid var(--color-surface-700)',
-        }}
-      >
-        <SearchBar value={search} onChange={setSearch} />
-        <CategoryMenu
-          categories={categories}
-          activeCategoryId={selectedCategoryId}
-          onSelect={handleCategorySelect}
-          isLoading={categoriesLoading}
-        />
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tienda" element={<Shop />} />
+          <Route path="/marcas" element={<Brands />} />
+          {/* Fallback a Home si la ruta no existe */}
+          <Route path="*" element={<Home />} />
+        </Routes>
       </div>
 
-      <main className="max-w-7xl mx-auto w-full px-4 pt-5 pb-24 flex-1">
-        <ProductList
-          products={products}
-          isLoading={productsLoading}
-          error={error}
-          total={total}
-          page={page}
-          totalPages={totalPages}
-          onPageChange={setPage}
-        />
-      </main>
-
+      {/* El botón de WhatsApp es global */}
       <WhatsAppButton />
+      
+      {/* Footer simple sugerido para el modo Light */}
+      <footer className="bg-white border-t border-zinc-200 py-10 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-zinc-400 text-sm">
+            © {new Date().getFullYear()} Almacén Agropecuario. Machetá, Cundinamarca.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
