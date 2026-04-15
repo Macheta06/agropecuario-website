@@ -28,7 +28,7 @@ function App() {
       <footer className="bg-white border-t border-zinc-200 py-10 mt-auto">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-zinc-400 text-sm">
-            © {new Date().getFullYear()} Almacén Agropecuario. Machetá, Cundinamarca.
+            © {new Date().getFullYear()} Almacén Agropecuario. Madrid, Cundinamarca.
           </p>
         </div>
       </footer>
