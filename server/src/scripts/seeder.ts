@@ -85,14 +85,55 @@ const CATEGORY_RULES: CategoryRule[] = [
     ],
   },
   {
-    name: 'Agropecuario',
-    slug: 'agropecuario',
+    name: 'Control Plagas',
+    slug: 'control-plagas',
+    keywords: [
+      'HERBICIDA', 'ROUNDUP', 'GLIFOSATO', 'PLAGA', 'CEBADE', 'MATA MALEZA',
+    ],
+  },
+  {
+    name: 'Control Roedores',
+    slug: 'control-roedores',
+    keywords: [
+      'RATIGAN', 'CAMPEON', 'ROEDOR', 'RATON', 'CEBO', 'PEGA PEGA', 'RATICIDA',
+    ],
+  },
+  {
+    name: 'Insecticidas',
+    slug: 'insecticidas',
+    keywords: [
+      'INSECTICIDA', 'ACARICIDA', 'CIPERMETRINA',
+    ],
+  },
+  {
+    name: 'Fungicidas',
+    slug: 'fungicidas',
+    keywords: [
+      'FUNGICIDA', 'CAPTAN', 'MANCOZEB',
+    ],
+  },
+  {
+    name: 'Herramientas Agrícolas',
+    slug: 'herramientas-agricolas',
+    keywords: [
+      'FUMIGADORA', 'BOMBA DE ESPALDA', 'COSECHA', 'MACHETE', 'PALA', 'AZADON',
+      'BARRETON', 'TIJERA PODA', 'GUADAÑA',
+    ],
+  },
+  {
+    name: 'Semillas y Fertilizantes',
+    slug: 'semillas-y-fertilizantes',
     keywords: [
       'ABONO', 'FERTILIZANTE', 'SEMILLA', 'CONCENTRADO', 'SAL MINERAL',
-      'HERBICIDA', 'FUNGICIDA', 'INSECTICIDA', 'ACARICIDA', 'ROUNDUP',
-      'GLIFOSATO', 'COSECHA', 'FUMIGADORA', 'BOMBA DE ESPALDA',
-      'CIPERMETRINA', 'CAPTAN', 'MANCOZEB', 'UREA', 'TRIPLE 15',
-      'DAP', 'POTASIO', 'CAL AGRICOLA', 'AZUFRE',
+      'UREA', 'TRIPLE 15', 'DAP', 'POTASIO', 'CAL AGRICOLA', 'AZUFRE',
+    ],
+  },
+  {
+    name: 'Seguridad Industrial',
+    slug: 'seguridad-industrial',
+    keywords: [
+      'CASCO', 'GAFAS', 'BOTAS', 'BOTIN', 'PRIMEROS AUXILIOS', 'BOTIQUIN',
+      'GUANTE', 'TAPABOCA', 'MASCARILLA', 'CHALECO',
     ],
   },
   {
@@ -265,6 +306,8 @@ const seed = async (): Promise<void> => {
             price: p.price,
             categoryId: categoryMap.get(p.categorySlug),
             isActive: true,
+          },
+          $setOnInsert: {
             description: '',
             imageUrl: '',
           },

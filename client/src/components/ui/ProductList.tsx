@@ -19,31 +19,30 @@ interface ProductListProps {
 /** Skeleton de tarjeta para estado de carga. */
 const ProductCardSkeleton = () => (
   <div
-    className="rounded-[0.875rem] overflow-hidden animate-pulse"
-    style={{ backgroundColor: 'var(--color-surface-800)' }}
+    className="product-card overflow-hidden animate-pulse"
   >
     {/* Imagen placeholder */}
     <div
       className="w-full"
-      style={{ aspectRatio: '1 / 1', backgroundColor: 'var(--color-surface-700)' }}
+      style={{ aspectRatio: '1 / 1', backgroundColor: 'var(--color-surface-100)' }}
     />
     {/* Texto placeholder */}
     <div className="p-3 flex flex-col gap-2">
       <div
         className="h-3 rounded-full w-3/4"
-        style={{ backgroundColor: 'var(--color-surface-700)' }}
+        style={{ backgroundColor: 'var(--color-surface-200)' }}
       />
       <div
         className="h-3 rounded-full w-1/2"
-        style={{ backgroundColor: 'var(--color-surface-700)' }}
+        style={{ backgroundColor: 'var(--color-surface-200)' }}
       />
       <div
         className="h-5 rounded-full w-2/5 mt-1"
-        style={{ backgroundColor: 'var(--color-surface-600)' }}
+        style={{ backgroundColor: 'var(--color-surface-200)' }}
       />
       <div
         className="h-8 rounded-full w-full mt-1"
-        style={{ backgroundColor: 'var(--color-surface-700)' }}
+        style={{ backgroundColor: 'var(--color-surface-200)' }}
       />
     </div>
   </div>
@@ -93,26 +92,26 @@ const Pagination = ({
       <button
         onClick={() => onPageChange(page - 1)}
         disabled={page === 1}
-        className="px-4 py-2 rounded-full text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+        className="px-4 py-2 rounded-full text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-brand-50 hover:text-brand-600 border border-zinc-200 shadow-xs"
         style={{
-          backgroundColor: 'var(--color-surface-700)',
-          color: 'var(--color-zinc-300)',
+          backgroundColor: 'var(--color-surface-100)',
+          color: 'var(--color-zinc-700)',
         }}
       >
         ← Anterior
       </button>
 
-      <span className="text-sm px-3" style={{ color: 'var(--color-zinc-400)' }}>
+      <span className="text-sm px-3 font-semibold" style={{ color: 'var(--color-zinc-600)' }}>
         {page} / {totalPages}
       </span>
 
       <button
         onClick={() => onPageChange(page + 1)}
         disabled={page === totalPages}
-        className="px-4 py-2 rounded-full text-sm font-medium transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+        className="px-4 py-2 rounded-full text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:bg-brand-50 hover:text-brand-600 border border-zinc-200 shadow-xs"
         style={{
-          backgroundColor: 'var(--color-surface-700)',
-          color: 'var(--color-zinc-300)',
+          backgroundColor: 'var(--color-surface-100)',
+          color: 'var(--color-zinc-700)',
         }}
       >
         Siguiente →

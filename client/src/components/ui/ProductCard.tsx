@@ -16,7 +16,7 @@ interface ProductCardProps {
 const ImageFallback = () => (
   <div
     className="w-full h-full flex flex-col items-center justify-center gap-2"
-    style={{ backgroundColor: 'var(--color-surface-700)' }}
+    style={{ backgroundColor: 'var(--color-surface-100)' }}
   >
     <svg
       className="w-12 h-12"
@@ -84,7 +84,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         {/* Nombre */}
         <h3
           className="text-sm font-semibold leading-snug line-clamp-2"
-          style={{ color: 'var(--color-zinc-300)' }}
+          style={{ color: 'var(--color-surface-800)' }}
           title={product.name}
         >
           {product.name}

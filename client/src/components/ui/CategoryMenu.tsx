@@ -41,7 +41,7 @@ const CategoryChip = ({
 const ChipSkeleton = () => (
   <div
     className="h-9 w-24 rounded-full flex-shrink-0 animate-pulse"
-    style={{ backgroundColor: 'var(--color-surface-700)' }}
+    style={{ backgroundColor: 'var(--color-surface-200)' }}
   />
 );
 

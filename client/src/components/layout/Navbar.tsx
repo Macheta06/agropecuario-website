@@ -21,7 +21,7 @@ export const Navbar = () => {
         <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all">
           <img 
             src="/logo.png" 
-            alt="Almacén Agropecuario Logo" 
+            alt="El Agropecuario Logo" 
             className="h-12 w-auto object-contain"
           />
         </Link>
