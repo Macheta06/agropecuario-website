@@ -18,7 +18,7 @@ export const apiGet = async <T>(
   endpoint: string,
   params?: Record<string, string>
 ): Promise<T> => {
-  const url = new URL(`${API_BASE_URL}${endpoint}`);
+  const url = new URL(`${API_BASE_URL}${endpoint}`, window.location.origin);
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== '') {
