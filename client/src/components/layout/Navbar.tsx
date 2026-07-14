@@ -20,7 +20,7 @@ export const Navbar = () => {
         {/* Izquierda: Logo */}
         <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-all">
           <img 
-            src="/logo.png" 
+            src="/logo-principal.png" 
             alt="El Agropecuario Logo" 
             className="h-12 w-auto object-contain"
           />

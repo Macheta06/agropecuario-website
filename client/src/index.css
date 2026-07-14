@@ -141,4 +141,13 @@ body {
     border-color: var(--color-brand-400);
     box-shadow: 0 0 0 4px rgb(249 115 22 / 0.1);
   }
+
+  /* Ocultar barra de desplazamiento */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

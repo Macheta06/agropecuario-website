@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "seed": "ts-node --project tsconfig.scripts.json src/scripts/seeder.ts",
-    "scrape": "ts-node --project tsconfig.scripts.json src/scripts/imageScraper.ts"
+    "scrape": "ts-node --project tsconfig.scripts.json src/scripts/imageScraper.ts",
+    "script:clasificar": "ts-node --project tsconfig.scripts.json src/scripts/ai-classifier.ts"
   },
   "keywords": [
     "express",
@@ -33,6 +34,8 @@
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
     "mongoose": "^9.4.1",
-    "puppeteer": "^24.40.0"
+    "openai": "^6.46.0",
+    "puppeteer": "^24.40.0",
+    "sharp": "^0.34.5"
   }
 }

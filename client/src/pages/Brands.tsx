@@ -1,13 +1,25 @@
 export const Brands = () => {
   const brands = [
-    { name: 'Pavinco', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=PAVINCO' },
-    { name: 'Grival', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=GRIVAL' },
-    { name: 'Sika', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=SIKA' },
-    { name: 'Pintuco', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=PINTUCO' },
-    { name: 'Stanley', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=STANLEY' },
-    { name: 'Bosch', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=BOSCH' },
-    { name: 'Eternit', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=ETERNIT' },
-    { name: 'Mexichem', logo: 'https://placehold.co/400x200/f5f5f5/f97316?text=MEXICHEM' },
+    { name: 'ABRACOL', logo: '/logos/abracol.webp' },
+    { name: 'AGROALIANZA SEMILLAS', logo: '/logos/agroalianza-semillas.webp' },
+    { name: 'BELLOTA', logo: '/logos/bellota.webp' },
+    { name: 'BOCCHERINI', logo: '/logos/boccherini.webp' },
+    { name: 'CODELCA', logo: '/logos/codelca.webp' },
+    { name: 'CORONA', logo: '/logos/corona.webp' },
+    { name: 'DEWALT', logo: '/logos/dewalt.webp' },
+    { name: 'EL CABALLO', logo: '/logos/el-caballo.webp' },
+    { name: 'GRIVAL', logo: '/logos/grival.webp' },
+    { name: 'HERRAGRO', logo: '/logos/herragro.webp' },
+    { name: 'LHAURA', logo: '/logos/lhaura.webp' },
+    { name: 'PALMERA GEL', logo: '/logos/palmera-gel.webp' },
+    { name: 'PAVCO', logo: '/logos/pavco.webp' },
+    { name: 'ROUND UP', logo: '/logos/round-up.webp' },
+    { name: 'ROYAL CONDOR', logo: '/logos/royal-condor.webp' },
+    { name: 'STIHL', logo: '/logos/stihl.webp' },
+    { name: 'TRAMONTINA', logo: '/logos/tramontina.webp' },
+    { name: 'TRUPER', logo: '/logos/truper.webp' },
+    { name: 'VARTA', logo: '/logos/varta.webp' },
+    { name: 'ZUBIOLA', logo: '/logos/zubiola.webp' }
   ];
 
   return (

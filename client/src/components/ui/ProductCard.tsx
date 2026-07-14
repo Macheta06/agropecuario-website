@@ -5,7 +5,6 @@
  * y botón de "Pedir por WhatsApp" que genera el mensaje pre-formateado.
  */
 import type { IProduct } from '../../types';
-import { formatPrice } from '../../utils/formatPrice';
 import { getProductWhatsAppUrl } from '../../utils/whatsapp';
 
 interface ProductCardProps {
@@ -90,13 +89,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.name}
         </h3>
 
-        {/* Precio */}
-        <p
-          className="text-lg font-bold mt-auto"
-          style={{ color: 'var(--color-brand-500)' }}
-        >
-          {formatPrice(product.price)}
-        </p>
+
 
         {/* CTA WhatsApp */}
         <a
