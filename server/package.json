@@ -5,8 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
-    "build": "cd server && npm install && npm run build",
-    "start": "node server/dist/server.js",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "seed": "ts-node --project tsconfig.scripts.json src/scripts/seeder.ts",
     "scrape": "ts-node --project tsconfig.scripts.json src/scripts/imageScraper.ts",
     "script:clasificar": "ts-node --project tsconfig.scripts.json src/scripts/ai-classifier.ts"
