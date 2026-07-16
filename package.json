@@ -2,8 +2,6 @@
   "name": "aagropecuario-root",
   "version": "1.0.0",
   "scripts": {
-    "install-all": "cd server && npm install && cd ../client && npm install",
-    "build-client": "cd client && npm run build",
-    "start": "cd server && npm start"
+    "build": "cd client && npm install && npm run build"
   }
 }
