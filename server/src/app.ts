@@ -27,6 +27,10 @@ app.get("/api/health", (_req, res) => {
 });
 
 const CLIENT_DIST_PATH = path.join(__dirname, "../dist"); // '..' para subir de /server a la raíz
+console.log(
+  "Intentando servir archivos desde:",
+  path.join(__dirname, "../dist"),
+);
 app.use(express.static(CLIENT_DIST_PATH));
 
 app.get("*", (_req, res) => {
