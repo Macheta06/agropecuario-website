@@ -9,7 +9,8 @@
     "start": "node dist/server.js",
     "seed": "ts-node --project tsconfig.scripts.json src/scripts/seeder.ts",
     "scrape": "ts-node --project tsconfig.scripts.json src/scripts/imageScraper.ts",
-    "script:clasificar": "ts-node --project tsconfig.scripts.json src/scripts/ai-classifier.ts"
+    "script:clasificar": "ts-node --project tsconfig.scripts.json src/scripts/ai-classifier.ts",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "express",
@@ -23,7 +24,9 @@
     "@types/cors": "^2.8.19",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "puppeteer": "^24.40.0",
+    "openai": "^6.46.0"
   },
   "dependencies": {
     "cloudinary": "^2.9.0",
@@ -31,8 +34,6 @@
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
     "mongoose": "^9.4.1",
-    "openai": "^6.46.0",
-    "puppeteer": "^24.40.0",
     "sharp": "^0.34.5",
     "typescript": "^5.7.0",
     "@types/express": "^4.17.21",
