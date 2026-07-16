@@ -13,23 +13,14 @@ import categoryRoutes from "./routes/category.routes";
 const app: Application = express();
 
 // --- Middlewares Globales ---
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://elagropecuariomadrid.com", // El dominio final de tu frontend
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.get("/debug-files", (req, res) => {
-  const fs = require("fs");
-  const path = require("path");
-  const targetDir = path.join(__dirname, "../dist"); // La ruta que sospechamos
-
-  res.json({
-    dir_actual: __dirname,
-    directorio_dist_existe: fs.existsSync(targetDir),
-    contenido_dist: fs.existsSync(targetDir)
-      ? fs.readdirSync(targetDir)
-      : "No existe la carpeta",
-  });
-});
 
 // --- Rutas de la API ---
 app.use("/api/products", productRoutes);
