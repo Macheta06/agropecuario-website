@@ -7,14 +7,16 @@ import "dotenv/config";
 import app from "./app";
 import { connectDB } from "./config/database";
 
-const PORT = process.env.PORT ?? 3000;
+// Convertimos explícitamente a Number para que TypeScript esté feliz
+const PORT = Number(process.env.PORT) || 3000;
 
 /** Inicializa la base de datos y arranca el servidor de forma secuencial. */
 const bootstrap = async (): Promise<void> => {
   await connectDB();
-  app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-    console.log(`   Entorno: ${process.env.NODE_ENV ?? "development"}`);
+
+  // El puerto ahora es garantizado tipo 'number'
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
   });
 };
 
