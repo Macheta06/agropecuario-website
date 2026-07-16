@@ -6,7 +6,6 @@
  */
 import express, { Application } from "express";
 import cors from "cors";
-import path from "path";
 import productRoutes from "./routes/product.routes";
 import categoryRoutes from "./routes/category.routes";
 
