@@ -15,11 +15,14 @@ const app: Application = express();
 // --- Middlewares Globales ---
 app.use(
   cors({
-    origin: "https://elagropecuariomadrid.com", // Tu dominio de frontend
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "https://elagropecuariomadrid.com",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Añadimos OPTIONS
+    allowedHeaders: ["Content-Type", "Authorization"], // Añadimos esto
     credentials: true,
   }),
 );
+
+app.options("*", cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,17 +33,6 @@ app.use("/api/categories", categoryRoutes);
 // --- Health Check ---
 app.get("/api/health", (_req, res) => {
   res.json({ status: "OK", timestamp: new Date().toISOString() });
-});
-
-const CLIENT_DIST_PATH = path.join(__dirname, "../dist"); // '..' para subir de /server a la raíz
-console.log(
-  "Intentando servir archivos desde:",
-  path.join(__dirname, "../dist"),
-);
-app.use(express.static(CLIENT_DIST_PATH));
-
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(CLIENT_DIST_PATH, "index.html"));
 });
 
 export default app;
