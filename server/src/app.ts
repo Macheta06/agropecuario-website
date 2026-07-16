@@ -15,7 +15,8 @@ const app: Application = express();
 // --- Middlewares Globales ---
 app.use(
   cors({
-    origin: "https://elagropecuariomadrid.com", // El dominio final de tu frontend
+    origin: "https://elagropecuariomadrid.com", // Tu dominio de frontend
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
 );
