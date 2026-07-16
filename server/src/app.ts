@@ -21,7 +21,7 @@ app.use(
   }),
 );
 
-app.options("*", cors());
+app.options(/(.*)/, cors()); // <-- Fíjate que ya no hay comillas
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
