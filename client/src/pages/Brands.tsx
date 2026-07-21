@@ -1,3 +1,5 @@
+import { getPurchasingWhatsAppUrl } from '../utils/whatsapp';
+
 export const Brands = () => {
   const brands = [
     { name: 'ABRACOL', logo: '/logos/abracol.webp' },
@@ -42,7 +44,14 @@ export const Brands = () => {
       <div className="mt-20 p-8 bg-zinc-50 rounded-2xl border border-zinc-200 text-center">
         <h2 className="text-xl font-bold text-zinc-800 mb-4">¿Distribuyes alguna marca y quieres trabajar con nosotros?</h2>
         <p className="text-zinc-500 mb-6">Estamos en constante búsqueda de los mejores productos para nuestros clientes en la región.</p>
-        <button className="btn-primary px-6 py-2">Contactar a Compras</button>
+        <a
+          href={getPurchasingWhatsAppUrl()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary px-6 py-2 inline-block"
+        >
+          Contactar a Compras
+        </a>
       </div>
     </div>
   );

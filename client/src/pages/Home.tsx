@@ -1,11 +1,40 @@
+import { useState, useEffect } from 'react';
 import { getGeneralWhatsAppUrl } from '../utils/whatsapp';
 
+const HERO_IMAGES = [
+  '/banner/hero-1.webp',
+  '/banner/hero-2.webp',
+  '/banner/hero-3.webp',
+  '/banner/hero-4.webp',
+];
+
 export const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="animate-fade-in">
-      {/* Hero Section */}
+      {/* Hero Section con Carrusel Automático (5s) */}
       <section className="relative h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
+        {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}
+        {HERO_IMAGES.map((imgUrl, index) => (
+          <div
+            key={imgUrl}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-40' : 'opacity-0'
+            }`}
+            style={{ backgroundImage: `url('${imgUrl}')` }}
+          />
+        ))}
+
+        {/* Contenido principal sobre el carrusel */}
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
             <span className="text-brand-500">El Agropecuario</span>
@@ -16,6 +45,23 @@ export const Home = () => {
           <a href="/tienda" className="btn-primary px-8 py-3.5 text-lg inline-block">
             Explorar Catálogo
           </a>
+        </div>
+
+        {/* Indicadores de diapositivas (Dots) */}
+        <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+          {HERO_IMAGES.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                index === currentSlide
+                  ? 'bg-brand-500 w-8'
+                  : 'bg-white/50 hover:bg-white w-2.5'
+              }`}
+              aria-label={`Ir a la diapositiva ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
@@ -49,7 +95,7 @@ export const Home = () => {
       {/* CTA Final */}
       <section className="bg-brand-50 py-16 px-4 text-center">
          <h2 className="text-3xl font-bold text-brand-600 mb-6 font-mono">¿Necesitas asesoría técnica?</h2>
-         <a href={getGeneralWhatsAppUrl()} target="_blank" className="btn-primary px-10 py-4 font-bold">
+         <a href={getGeneralWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn-primary px-10 py-4 font-bold">
            Hablar con un Experto
          </a>
       </section>

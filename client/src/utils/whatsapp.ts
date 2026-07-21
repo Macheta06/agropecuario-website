@@ -26,3 +26,12 @@ export const getGeneralWhatsAppUrl = (): string => {
   const message = '¡Hola! Me gustaría recibir más información sobre sus productos.';
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
+
+/**
+ * Genera el URL de WhatsApp para contacto con el departamento de compras / proveedores.
+ * @returns {string} URL de wa.me con mensaje pre-formateado para compras.
+ */
+export const getPurchasingWhatsAppUrl = (): string => {
+  const message = '¡Hola! Soy proveedor/distribuidor y me gustaría ponerme en contacto con el departamento de compras de El Agropecuario.';
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
