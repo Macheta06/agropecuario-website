@@ -2,19 +2,19 @@ import { useState, useEffect } from 'react';
 import { getGeneralWhatsAppUrl } from '../utils/whatsapp';
 
 const HERO_IMAGES = [
-  '/banner/hero-1.webp',
-  '/banner/hero-2.webp',
-  '/banner/hero-3.webp',
-  '/banner/hero-4.webp',
-  '/banner/hero-5.webp',
-  '/banner/hero-6.webp',
-  '/banner/hero-7.webp',
-  '/banner/hero-8.webp',
-  '/banner/hero-9.webp',
-  '/banner/hero-10.webp',
-  '/banner/hero-11.webp',
-  '/banner/hero-12.webp',
-  '/banner/hero-13.webp'
+  '/banner/banner-1.webp',
+  '/banner/banner-2.webp',
+  '/banner/banner-3.webp',
+  '/banner/banner-4.webp',
+  '/banner/banner-5.webp',
+  '/banner/banner-6.webp',
+  '/banner/banner-7.webp',
+  '/banner/banner-8.webp',
+  '/banner/banner-9.webp',
+  '/banner/banner-10.webp',
+  '/banner/banner-11.webp',
+  '/banner/banner-12.webp',
+  '/banner/banner-13.webp'
 ];
 
 export const Home = () => {
@@ -30,8 +30,8 @@ export const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section con Carrusel Automático (5s) */}
-      <section className="relative h-[60vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
+      {/* Hero Section con Carrusel Automático (80vh de alto y textos más grandes) */}
+      <section className="relative h-[80vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
         {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}
         {HERO_IMAGES.map((imgUrl, index) => (
           <div
@@ -54,23 +54,23 @@ export const Home = () => {
         ))}
 
         {/* Filtro oscuro para garantizar legibilidad del texto en cualquier imagen */}
-        <div className="absolute inset-0 bg-black/45 z-5 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
 
-        {/* Contenido principal sobre el carrusel */}
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4">
+        {/* Contenido principal sobre el carrusel (Agrandado para mejor impacto visual) */}
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
             <span className="text-brand-500">El Agropecuario</span>
           </h1>
-          <p className="text-xl text-zinc-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-zinc-200 mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed">
             Más de 50 años equipando el campo y la construcción con las mejores marcas del mercado.
           </p>
-          <a href="/tienda" className="btn-primary px-8 py-3.5 text-lg inline-block">
+          <a href="/tienda" className="btn-primary px-10 py-4.5 text-xl font-semibold shadow-xl inline-block hover:scale-105 transition-transform">
             Explorar Catálogo
           </a>
         </div>
 
         {/* Indicadores de diapositivas (Dots) */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+        <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
           {HERO_IMAGES.map((_, index) => (
             <button
               key={index}
