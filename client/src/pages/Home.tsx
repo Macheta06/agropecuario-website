@@ -6,6 +6,15 @@ const HERO_IMAGES = [
   '/banner/hero-2.webp',
   '/banner/hero-3.webp',
   '/banner/hero-4.webp',
+  '/banner/hero-5.webp',
+  '/banner/hero-6.webp',
+  '/banner/hero-7.webp',
+  '/banner/hero-8.webp',
+  '/banner/hero-9.webp',
+  '/banner/hero-10.webp',
+  '/banner/hero-11.webp',
+  '/banner/hero-12.webp',
+  '/banner/hero-13.webp'
 ];
 
 export const Home = () => {
@@ -22,17 +31,30 @@ export const Home = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section con Carrusel Automático (5s) */}
-      <section className="relative h-[60vh] flex items-center justify-center bg-zinc-900 overflow-hidden">
+      <section className="relative h-[60vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
         {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}
         {HERO_IMAGES.map((imgUrl, index) => (
           <div
             key={imgUrl}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-40' : 'opacity-0'
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
-            style={{ backgroundImage: `url('${imgUrl}')` }}
-          />
+          >
+            {/* Fondo difuminado para rellenar los bordes (evita cortes de la imagen) */}
+            <div
+              className="absolute inset-0 bg-cover bg-center filter blur-xl opacity-35 scale-110"
+              style={{ backgroundImage: `url('${imgUrl}')` }}
+            />
+            {/* Imagen principal contenida al 100% en el centro */}
+            <div
+              className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-65"
+              style={{ backgroundImage: `url('${imgUrl}')` }}
+            />
+          </div>
         ))}
+
+        {/* Filtro oscuro para garantizar legibilidad del texto en cualquier imagen */}
+        <div className="absolute inset-0 bg-black/45 z-5 pointer-events-none" />
 
         {/* Contenido principal sobre el carrusel */}
         <div className="relative z-10 text-center px-4">
