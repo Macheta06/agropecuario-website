@@ -17,6 +17,29 @@ const HERO_IMAGES = [
   '/banner/banner-13.webp'
 ];
 
+const BRAND_LOGOS = [
+  { name: 'ABRACOL', logo: '/logos/abracol.webp' },
+  { name: 'AGROALIANZA SEMILLAS', logo: '/logos/agroalianza-semillas.webp' },
+  { name: 'BELLOTA', logo: '/logos/bellota.webp' },
+  { name: 'BOCCHERINI', logo: '/logos/boccherini.webp' },
+  { name: 'CODELCA', logo: '/logos/codelca.webp' },
+  { name: 'CORONA', logo: '/logos/corona.webp' },
+  { name: 'DEWALT', logo: '/logos/dewalt.webp' },
+  { name: 'EL CABALLO', logo: '/logos/el-caballo.webp' },
+  { name: 'GRIVAL', logo: '/logos/grival.webp' },
+  { name: 'HERRAGRO', logo: '/logos/herragro.webp' },
+  { name: 'LHAURA', logo: '/logos/lhaura.webp' },
+  { name: 'PALMERA GEL', logo: '/logos/palmera-gel.webp' },
+  { name: 'PAVCO', logo: '/logos/pavco.webp' },
+  { name: 'ROUND UP', logo: '/logos/round-up.webp' },
+  { name: 'ROYAL CONDOR', logo: '/logos/royal-condor.webp' },
+  { name: 'STIHL', logo: '/logos/stihl.webp' },
+  { name: 'TRAMONTINA', logo: '/logos/tramontina.webp' },
+  { name: 'TRUPER', logo: '/logos/truper.webp' },
+  { name: 'VARTA', logo: '/logos/varta.webp' },
+  { name: 'ZUBIOLA', logo: '/logos/zubiola.webp' }
+];
+
 export const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -30,7 +53,7 @@ export const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section con Carrusel Automático (80vh de alto y textos más grandes) */}
+      {/* Hero Section con Carrusel Automático (80vh de alto) */}
       <section className="relative h-[80vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
         {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}
         {HERO_IMAGES.map((imgUrl, index) => (
@@ -56,15 +79,12 @@ export const Home = () => {
         {/* Filtro oscuro para garantizar legibilidad del texto en cualquier imagen */}
         <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
 
-        {/* Contenido principal sobre el carrusel (Agrandado para mejor impacto visual) */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-lg leading-tight">
+        {/* Contenido principal sobre el carrusel (Simplificado: Título + Botón con más gap) */}
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center gap-12 md:gap-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-md tracking-tight">
             <span className="text-brand-500">El Agropecuario</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-200 mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed">
-            Más de 50 años equipando el campo y la construcción con las mejores marcas del mercado.
-          </p>
-          <a href="/tienda" className="btn-primary px-10 py-4.5 text-xl font-semibold shadow-xl inline-block hover:scale-105 transition-transform">
+          <a href="/tienda" className="btn-primary px-8 py-3 text-lg font-semibold shadow-lg inline-block hover:scale-105 transition-transform">
             Explorar Catálogo
           </a>
         </div>
@@ -84,6 +104,44 @@ export const Home = () => {
               aria-label={`Ir a la diapositiva ${index + 1}`}
             />
           ))}
+        </div>
+      </section>
+
+      {/* Banda de Marcas Aliadas (Infinite Marquee) */}
+      <section className="w-full bg-white border-y border-zinc-200 py-6 overflow-hidden">
+        <div className="relative w-full flex overflow-x-hidden">
+          <div className="flex gap-16 animate-marquee whitespace-nowrap">
+            {/* Primera tanda de marcas */}
+            {BRAND_LOGOS.map((brand, idx) => (
+              <div
+                key={`brand-1-${idx}`}
+                className="flex items-center justify-center w-36 h-12 grayscale opacity-55 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+                title={brand.name}
+              >
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-w-full max-h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+            {/* Segunda tanda duplicada para el bucle continuo sin saltos */}
+            {BRAND_LOGOS.map((brand, idx) => (
+              <div
+                key={`brand-2-${idx}`}
+                className="flex items-center justify-center w-36 h-12 grayscale opacity-55 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+                title={brand.name}
+              >
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-w-full max-h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
