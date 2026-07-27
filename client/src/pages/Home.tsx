@@ -53,7 +53,7 @@ export const Home = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section con Carrusel Automático (80vh de alto) */}
+      {/* Hero Section con Carrusel Automático (80vh de alto) - Solo visualización de fotos */}
       <section className="relative h-[80vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
         {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}
         {HERO_IMAGES.map((imgUrl, index) => (
@@ -65,29 +65,16 @@ export const Home = () => {
           >
             {/* Fondo difuminado para rellenar los bordes (evita cortes de la imagen) */}
             <div
-              className="absolute inset-0 bg-cover bg-center filter blur-xl opacity-35 scale-110"
+              className="absolute inset-0 bg-cover bg-center filter blur-xl opacity-25 scale-110"
               style={{ backgroundImage: `url('${imgUrl}')` }}
             />
-            {/* Imagen principal contenida al 100% en el centro */}
+            {/* Imagen principal contenida al 100% en el centro con opacidad original */}
             <div
-              className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-65"
+              className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-100"
               style={{ backgroundImage: `url('${imgUrl}')` }}
             />
           </div>
         ))}
-
-        {/* Filtro oscuro para garantizar legibilidad del texto en cualquier imagen */}
-        <div className="absolute inset-0 bg-black/50 z-5 pointer-events-none" />
-
-        {/* Contenido principal sobre el carrusel (Simplificado: Título + Botón con más gap) */}
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center gap-12 md:gap-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-md tracking-tight">
-            <span className="text-brand-500">El Agropecuario</span>
-          </h1>
-          <a href="/tienda" className="btn-primary px-8 py-3 text-lg font-semibold shadow-lg inline-block hover:scale-105 transition-transform">
-            Explorar Catálogo
-          </a>
-        </div>
 
         {/* Indicadores de diapositivas (Dots) */}
         <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
@@ -115,7 +102,7 @@ export const Home = () => {
             {BRAND_LOGOS.map((brand, idx) => (
               <div
                 key={`brand-1-${idx}`}
-                className="flex items-center justify-center w-36 h-12 grayscale opacity-55 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+                className="flex items-center justify-center w-36 h-12 flex-shrink-0"
                 title={brand.name}
               >
                 <img
@@ -130,7 +117,7 @@ export const Home = () => {
             {BRAND_LOGOS.map((brand, idx) => (
               <div
                 key={`brand-2-${idx}`}
-                className="flex items-center justify-center w-36 h-12 grayscale opacity-55 hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0"
+                className="flex items-center justify-center w-36 h-12 flex-shrink-0"
                 title={brand.name}
               >
                 <img
@@ -142,6 +129,24 @@ export const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Sección de Llamado a la Acción (CTA) para conocer productos */}
+      <section className="bg-zinc-50 border-b border-zinc-200 py-16 px-4 text-center">
+        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-surface-800 tracking-tight">
+            Conozca nuestros productos
+          </h2>
+          <p className="text-zinc-500 max-w-xl leading-relaxed">
+            Explore nuestro catálogo digital completo y descubra por qué llevamos más de 50 años siendo la opción líder de la región.
+          </p>
+          <a
+            href="/tienda"
+            className="btn-primary px-10 py-3.5 text-lg font-semibold shadow-md inline-block hover:scale-105 transition-transform"
+          >
+            Explorar Catálogo
+          </a>
         </div>
       </section>
 
