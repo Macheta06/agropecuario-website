@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { SearchBar } from '../components/ui/SearchBar';
 import { CategoryMenu } from '../components/ui/CategoryMenu';
 import { ProductList } from '../components/ui/ProductList';
@@ -20,19 +21,23 @@ export const Shop = () => {
     setPage,
   } = useProducts({ search, categoryId: selectedCategoryId });
 
-  // ── Título Dinámico ────────────────────────────────────────────────────────
-  useEffect(() => {
-    const activeCategory = categories.find(c => c._id === selectedCategoryId);
-    const suffix = 'El Agropecuario';
-    
-    if (search) {
-      document.title = `Buscando "${search}" | ${suffix}`;
-    } else if (activeCategory) {
-      document.title = `${activeCategory.name} | ${suffix}`;
-    } else {
-      document.title = `Tienda | ${suffix}`;
-    }
-  }, [search, selectedCategoryId, categories]);
+  // ── Título y Meta Dinámicos con Helmet ──────────────────────────────────
+  const activeCategory = categories.find(c => c._id === selectedCategoryId);
+  const SITE_NAME = 'El Agropecuario | Ferretería en Madrid, Cundinamarca';
+
+  let helmetTitle: string;
+  let helmetDescription: string;
+
+  if (search) {
+    helmetTitle = `Buscando "${search}" | El Agropecuario`;
+    helmetDescription = `Resultados de búsqueda para "${search}" en El Agropecuario. Herramientas, materiales de construcción y productos agropecuarios en Madrid, Cundinamarca.`;
+  } else if (activeCategory) {
+    helmetTitle = `${activeCategory.name} | El Agropecuario`;
+    helmetDescription = `Encuentra los mejores productos de ${activeCategory.name} en El Agropecuario. Tu ferretería de confianza en Madrid, Cundinamarca.`;
+  } else {
+    helmetTitle = `Catálogo de Productos | ${SITE_NAME}`;
+    helmetDescription = 'Explora el catálogo completo de herramientas, materiales de construcción y productos agropecuarios de El Agropecuario en Madrid, Cundinamarca.';
+  }
 
   // ── Auto-scroll al inicio ──────────────────────────────────────────────────
   useEffect(() => {
@@ -46,6 +51,11 @@ export const Shop = () => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>{helmetTitle}</title>
+        <meta name="description" content={helmetDescription} />
+        <link rel="canonical" href="https://elagropecuariomadrid.com/tienda" />
+      </Helmet>
       <div
         className="sticky z-30 w-full px-4 pt-4 pb-4 flex flex-col gap-3"
         style={{

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { getPurchasingWhatsAppUrl } from '../utils/whatsapp';
 
 export const Brands = () => {
@@ -26,6 +27,11 @@ export const Brands = () => {
 
   return (
     <div className="animate-fade-in max-w-7xl mx-auto px-4 py-16">
+      <Helmet>
+        <title>Marcas Aliadas | El Agropecuario — Ferretería en Madrid, Cundinamarca</title>
+        <meta name="description" content="Distribuidores oficiales de DEWALT, STIHL, CORONA, TRAMONTINA, TRUPER y más. Las mejores marcas del mercado para la construcción y el campo en El Agropecuario, Madrid, Cundinamarca." />
+        <link rel="canonical" href="https://elagropecuariomadrid.com/marcas" />
+      </Helmet>
       <div className="text-center mb-12">
         <h1 className="text-3xl font-extrabold text-surface-800 mb-4">Marcas <span className="text-brand-500">Aliadas</span></h1>
         <p className="text-zinc-500 max-w-xl mx-auto">

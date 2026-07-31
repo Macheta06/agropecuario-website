@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { getGeneralWhatsAppUrl } from '../utils/whatsapp';
 
 const HERO_IMAGES = [
@@ -53,6 +54,11 @@ export const Home = () => {
 
   return (
     <div className="animate-fade-in">
+      <Helmet>
+        <title>El Agropecuario | Ferretaría y Herramientas en Madrid, Cundinamarca</title>
+        <meta name="description" content="Más de 50 años equipando el campo y la construcción. Ferretaría, herramientas y productos agropecuarios en Madrid, Cundinamarca. Visita nuestro catálogo digital." />
+        <link rel="canonical" href="https://elagropecuariomadrid.com/" />
+      </Helmet>
       {/* Hero Section con Carrusel Automático (80vh de alto) - Solo visualización de fotos */}
       <section className="relative h-[80vh] flex items-center justify-center bg-zinc-950 overflow-hidden">
         {/* Imágenes del carrusel con efecto de fundido suave (cross-fade) */}

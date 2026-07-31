@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/layout/Navbar';
 import { WhatsAppButton } from './components/ui/WhatsAppButton';
 import { Home } from './pages/Home';
@@ -7,6 +8,7 @@ import { Brands } from './pages/Brands';
 
 function App() {
   return (
+    <HelmetProvider>
     <div className="min-h-dvh flex flex-col bg-surface-50">
       {/* El Navbar se mantiene en todas las vistas */}
       <Navbar />
@@ -33,6 +35,7 @@ function App() {
         </div>
       </footer>
     </div>
+    </HelmetProvider>
   );
 }
 
